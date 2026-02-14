@@ -41,6 +41,9 @@
   border: 1px solid var(--border-color);
   box-shadow: 0 4px 12px var(--shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .feature-card:hover {

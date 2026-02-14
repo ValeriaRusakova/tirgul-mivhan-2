@@ -12,23 +12,23 @@ const Home = () => {
         </p>
         
         <div className="home-features">
-          <div className="feature-card">
+          <Link to="/products" className="feature-card">
             <span className="feature-icon">📦</span>
             <h3>מגוון מוצרים</h3>
             <p>גלה מוצרים מעולים במחירים משתלמים</p>
-          </div>
+          </Link>
           
-          <div className="feature-card">
+          <Link to="/cart" className="feature-card">
             <span className="feature-icon">🛒</span>
             <h3>עגלת קניות</h3>
             <p>הוסף מוצרים לעגלה בקלות</p>
-          </div>
+          </Link>
           
-          <div className="feature-card">
+          <Link to="/products" className="feature-card">
             <span className="feature-icon">⭐</span>
             <h3>דירוגים</h3>
             <p>צפה בדירוגי לקוחות לכל מוצר</p>
-          </div>
+          </Link>
         </div>
         
         <Link to="/products" className="cta-button">
