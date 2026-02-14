@@ -6,33 +6,33 @@ const Home = () => {
   return (
     <div className="home">
       <div className="home-hero">
-        <h1>ברוכים הבאים ל-Product Dashboard</h1>
+        <h1>Welcome to Product Dashboard</h1>
         <p className="home-subtitle">
-          מערכת ניהול מוצרים פשוטה וקלה לשימוש
+          Simple and easy-to-use product management system
         </p>
         
         <div className="home-features">
           <Link to="/products" className="feature-card">
             <span className="feature-icon">📦</span>
-            <h3>מגוון מוצרים</h3>
-            <p>גלה מוצרים מעולים במחירים משתלמים</p>
+            <h3>Product Variety</h3>
+            <p>Discover great products at affordable prices</p>
           </Link>
           
           <Link to="/cart" className="feature-card">
             <span className="feature-icon">🛒</span>
-            <h3>עגלת קניות</h3>
-            <p>הוסף מוצרים לעגלה בקלות</p>
+            <h3>Shopping Cart</h3>
+            <p>Add products to your cart easily</p>
           </Link>
           
           <Link to="/products" className="feature-card">
             <span className="feature-icon">⭐</span>
-            <h3>דירוגים</h3>
-            <p>צפה בדירוגי לקוחות לכל מוצר</p>
+            <h3>Ratings</h3>
+            <p>View customer ratings for each product</p>
           </Link>
         </div>
         
         <Link to="/products" className="cta-button">
-          צפה במוצרים
+          View Products
         </Link>
       </div>
     </div>

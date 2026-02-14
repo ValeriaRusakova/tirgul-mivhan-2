@@ -51,14 +51,14 @@ const Products = () => {
       );
       
       if (!response.ok) {
-        throw new Error('שגיאה בטעינת המוצרים');
+        throw new Error('Error loading products');
       }
       
       const data: ProductsResponse = await response.json();
       setProducts(data.products);
       setTotalProducts(data.total);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'שגיאה לא ידועה');
+      setError(err instanceof Error ? err.message : 'Unknown error');
     } finally {
       setLoading(false);
     }
@@ -93,25 +93,25 @@ const Products = () => {
     return <Loading />;
   }
 
-  // הצגת שגיאה
+  // Display error
   if (error) {
     return (
       <div className="error-container">
-        <h2>אופס! משהו השתבש</h2>
+        <h2>Oops! Something went wrong</h2>
         <p>{error}</p>
-        <button onClick={() => fetchProducts(currentPage)}>נסה שוב</button>
+        <button onClick={() => fetchProducts(currentPage)}>Try Again</button>
       </div>
     );
   }
 
   return (
     <div className="products-page">
-      <h1>המוצרים שלנו</h1>
+      <h1>Our Products</h1>
       <p className="products-count">
-        מציג {products.length} מתוך {totalProducts} מוצרים
+        Displaying {products.length} of {totalProducts} products
       </p>
 
-      {/* גריד של מוצרים */}
+      {/* Products grid */}
       <div className="products-grid">
         {products.map((product) => (
           <Link 
@@ -139,11 +139,11 @@ const Products = () => {
           disabled={currentPage === 1}
           className="pagination-button"
         >
-          ← קודם
+          ← Previous
         </button>
         
         <span className="pagination-info">
-          עמוד {currentPage} מתוך {totalPages}
+          Page {currentPage} of {totalPages}
         </span>
         
         <button 
@@ -151,7 +151,7 @@ const Products = () => {
           disabled={currentPage === totalPages}
           className="pagination-button"
         >
-          הבא →
+          Next →
         </button>
       </div>
     </div>

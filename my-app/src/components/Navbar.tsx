@@ -14,23 +14,23 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        {/* לוגו */}
+        {/* Logo */}
         <Link to="/" className="navbar-logo">
           🛒 Product Dashboard
         </Link>
 
-        {/* תפריט ניווט */}
+        {/* Navigation menu */}
         <ul className="navbar-menu">
           <li>
-            <Link to="/">בית</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/products">מוצרים</Link>
+            <Link to="/products">Products</Link>
           </li>
           <li>
             <Link to="/cart" className="cart-link">
-              עגלה
-              {/* הצגת מספר פריטים בעגלה */}
+              Cart
+              {/* Display cart items count */}
               {totalItems > 0 && (
                 <span className="cart-badge">{totalItems}</span>
               )}
@@ -38,11 +38,11 @@ const Navbar = () => {
           </li>
         </ul>
 
-        {/* כפתור להחלפת נושא */}
+        {/* Theme toggle button */}
         <button 
           className="theme-toggle" 
           onClick={toggleTheme}
-          aria-label="החלף נושא"
+          aria-label="Toggle theme"
         >
           {theme === 'light' ? '🌙' : '☀️'}
         </button>

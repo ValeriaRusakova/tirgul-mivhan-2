@@ -204,7 +204,7 @@
 
 .continue-shopping-link:hover {
   color: var(--accent-hover);
-  transform: translateX(5px);
+  transform: translateX(-5px);
 }
 
 /* Empty Cart */

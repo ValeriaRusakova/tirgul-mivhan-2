@@ -14,7 +14,7 @@ const Layout = () => {
         <Outlet />
       </main>
       
-      {/* כותרת תחתונה */}
+      {/* Footer */}
       <footer className="footer">
         <p>&copy; 2026 Product Dashboard. All rights reserved.</p>
       </footer>

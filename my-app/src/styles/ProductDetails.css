@@ -19,7 +19,7 @@
 .back-button:hover {
   background-color: var(--accent);
   color: white;
-  transform: translateX(5px);
+  transform: translateX(-5px);
 }
 
 .product-content {

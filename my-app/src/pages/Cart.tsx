@@ -21,22 +21,22 @@ const Cart = () => {
     dispatch(removeFromCart(id));
   };
 
-  // פונקציה לניקוי העגלה
+  // Function to clear cart
   const handleClearCart = () => {
-    if (window.confirm('האם אתה בטוח שברצונך לרוקן את העגלה?')) {
+    if (window.confirm('Are you sure you want to empty your cart?')) {
       dispatch(clearCart());
     }
   };
 
-  // אם העגלה ריקה
+  // If cart is empty
   if (items.length === 0) {
     return (
       <div className="empty-cart">
         <div className="empty-cart-icon">🛒</div>
-        <h2>העגלה שלך ריקה</h2>
-        <p>עדיין לא הוספת מוצרים לעגלה</p>
+        <h2>Your Cart is Empty</h2>
+        <p>You haven't added any products to your cart yet</p>
         <Link to="/products" className="continue-shopping-button">
-          המשך לקנות
+          Continue Shopping
         </Link>
       </div>
     );
@@ -45,14 +45,14 @@ const Cart = () => {
   return (
     <div className="cart-page">
       <div className="cart-header">
-        <h1>עגלת הקניות שלי</h1>
+        <h1>My Shopping Cart</h1>
         <button onClick={handleClearCart} className="clear-cart-button">
-          רוקן עגלה
+          Clear Cart
         </button>
       </div>
 
       <div className="cart-content">
-        {/* רשימת המוצרים */}
+        {/* Product list */}
         <div className="cart-items">
           {items.map((item) => (
             <div key={item.id} className="cart-item">
@@ -88,7 +88,7 @@ const Cart = () => {
               <button 
                 onClick={() => handleRemove(item.id)}
                 className="remove-button"
-                aria-label="הסר מוצר"
+                aria-label="Remove product"
               >
                 🗑️
               </button>
@@ -96,33 +96,33 @@ const Cart = () => {
           ))}
         </div>
 
-        {/* סיכום ההזמנה */}
+        {/* Order Summary */}
         <div className="cart-summary">
-          <h2>סיכום הזמנה</h2>
+          <h2>Order Summary</h2>
           
           <div className="summary-row">
-            <span>מספר פריטים:</span>
+            <span>Number of items:</span>
             <span>{totalItems}</span>
           </div>
 
           <div className="summary-row">
-            <span>סה"כ מוצרים:</span>
+            <span>Total products:</span>
             <span>{items.length}</span>
           </div>
 
           <div className="summary-divider"></div>
 
           <div className="summary-row total-row">
-            <span>סה"כ לתשלום:</span>
+            <span>Total:</span>
             <span className="total-price">${totalPrice.toFixed(2)}</span>
           </div>
 
           <button className="checkout-button">
-            המשך לתשלום
+            Proceed to Checkout
           </button>
 
           <Link to="/products" className="continue-shopping-link">
-            ← המשך בקניות
+            ← Continue Shopping
           </Link>
         </div>
       </div>

@@ -7,17 +7,17 @@ const NotFound = () => {
     <div className="not-found">
       <div className="not-found-content">
         <h1 className="not-found-title">404</h1>
-        <h2>הדף לא נמצא</h2>
-        <p>מצטערים, הדף שחיפשת לא קיים</p>
+        <h2>Page Not Found</h2>
+        <p>Sorry, the page you are looking for does not exist</p>
         
         <div className="not-found-icon">🔍</div>
         
         <div className="not-found-actions">
           <Link to="/" className="home-link-button">
-            חזרה לדף הבית
+            Back to Home
           </Link>
           <Link to="/products" className="products-link-button">
-            לרשימת המוצרים
+            View Products
           </Link>
         </div>
       </div>

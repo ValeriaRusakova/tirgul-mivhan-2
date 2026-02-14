@@ -45,15 +45,15 @@ const ProductDetailsPage = () => {
 
       if (!response.ok) {
         if (response.status === 404) {
-          throw new Error('המוצר לא נמצא');
+          throw new Error('Product not found');
         }
-        throw new Error('שגיאה בטעינת המוצר');
+        throw new Error('Error loading product');
       }
 
       const data: ProductDetails = await response.json();
       setProduct(data);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'שגיאה לא ידועה');
+      setError(err instanceof Error ? err.message : 'Unknown error');
     } finally {
       setLoading(false);
     }
@@ -87,13 +87,13 @@ const ProductDetailsPage = () => {
     return <Loading />;
   }
 
-  // הצגת שגיאה
+  // Display error
   if (error) {
     return (
       <div className="error-container">
-        <h2>אופס! משהו השתבש</h2>
+        <h2>Oops! Something went wrong</h2>
         <p>{error}</p>
-        <button onClick={() => navigate('/products')}>חזרה למוצרים</button>
+        <button onClick={() => navigate('/products')}>Back to Products</button>
       </div>
     );
   }
@@ -106,11 +106,11 @@ const ProductDetailsPage = () => {
   return (
     <div className="product-details">
       <button onClick={() => navigate('/products')} className="back-button">
-        ← חזרה למוצרים
+        ← Back to Products
       </button>
 
       <div className="product-content">
-        {/* תמונת המוצר */}
+        {/* Product image */}
         <div className="product-image-section">
           <img src={product.thumbnail} alt={product.title} className="main-image" />
         </div>
@@ -131,31 +131,31 @@ const ProductDetailsPage = () => {
           <p className="product-description">{product.description}</p>
 
           <div className="product-price-section">
-            <span className="price-label">מחיר:</span>
+            <span className="price-label">Price:</span>
             <span className="price-value">${product.price}</span>
           </div>
 
           <div className="product-stock">
             {product.stock > 0 ? (
-              <span className="in-stock">✓ במלאי ({product.stock} יחידות)</span>
+              <span className="in-stock">✓ In Stock ({product.stock} units)</span>
             ) : (
-              <span className="out-of-stock">✗ אזל מהמלאי</span>
+              <span className="out-of-stock">✗ Out of Stock</span>
             )}
           </div>
 
-          {/* כפתור הוספה לעגלה */}
+          {/* Add to cart button */}
           <button 
             onClick={handleAddToCart}
             disabled={product.stock === 0}
             className="add-to-cart-button"
           >
-            {product.stock > 0 ? '🛒 הוסף לעגלה' : 'אזל מהמלאי'}
+            {product.stock > 0 ? '🛒 Add to Cart' : 'Out of Stock'}
           </button>
 
-          {/* הודעת אישור */}
+          {/* Confirmation message */}
           {addedToCart && (
             <div className="success-message">
-              ✓ המוצר נוסף לעגלה בהצלחה!
+              ✓ Product added to cart successfully!
             </div>
           )}
         </div>
